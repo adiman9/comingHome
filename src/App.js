@@ -2,11 +2,11 @@ import React from "react";
 import "./App.css";
 import woodImg from "./woodLarge.jpg";
 
-function BackgroundImage(props) {
+function BackgroundImage2(props) {
   return (
     <div
       style={{
-        backgroundImage: `url(${props.src})`,
+        BackgroundImage2: `url(${props.src})`,
         width: "100%",
         minHeight: '100vh',
         height: '100%',
@@ -92,8 +92,8 @@ function shuffle(a) {
 
 export default () => {
   return (
-    <BackgroundImage src={woodImg}>
+    <BackgroundImage2 src={woodImg}>
       <PhotoElements />
-    </BackgroundImage>
+    </BackgroundImage2>
   );
 };
