@@ -2,41 +2,8 @@ import React from "react";
 import "./App.css";
 import woodImg from "./woodLarge.jpg";
 import { BackgroundImage } from "./Components/BackgroundImage";
-
-function Photo(props) {
-  return (
-    <span
-      style={{
-        boxShadow:
-          "0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)",
-        width: "600px",
-        overflow: "hidden",
-        border: "15px solid white",
-        height: "400px",
-        position: "absolute",
-        top: `${props.y_translate}px`,
-        left: `${props.x_translate}px`,
-        transform: `rotate(${props.rotation}deg)`
-      }}
-    >
-      <img
-        alt=""
-        src={props.img}
-        style={{
-          width: "100%"
-        }}
-      />
-    </span>
-  );
-}
-
-function generateImageObject(url) {
-  const rotation = Math.random() * 30 - 15;
-  const x_translate = Math.random() * 600;
-  const y_translate = Math.random() * 400;
-
-  return { url, rotation, x_translate, y_translate };
-}
+import { PhotoElements } from "./Components/Photo";
+import { shuffle, generateImageObject } from "./utils";
 
 let imagesArray = [
   "https://scontent-lht6-1.xx.fbcdn.net/v/t31.0-8/27747454_1934438389917905_2193220430344533494_o.jpg?_nc_cat=109&_nc_ht=scontent-lht6-1.xx&oh=e1cd9ba08e037b40f06d287d5cad286f&oe=5CE9A189",
@@ -49,35 +16,10 @@ let images = shuffle(imagesArray);
 
 let imagesObj = images.map(url => generateImageObject(url));
 
-function PhotoElements(props) {
-  const imageEls = imagesObj.map(img => (
-    <Photo
-      key={img.url}
-      img={img.url}
-      rotation={img.rotation}
-      x_translate={img.x_translate}
-      y_translate={img.y_translate}
-    />
-  ));
-
-  return <>{imageEls}</>;
-}
-
-function shuffle(a) {
-  var j, x, i;
-  for (i = a.length - 1; i > 0; i--) {
-    j = Math.floor(Math.random() * (i + 1));
-    x = a[i];
-    a[i] = a[j];
-    a[j] = x;
-  }
-  return a;
-}
-
 export default () => {
   return (
     <BackgroundImage src={woodImg}>
-      <PhotoElements />
+      <PhotoElements images={imagesObj} />
     </BackgroundImage>
   );
 };
