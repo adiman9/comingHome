@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import woodImg from "./wood.jpg";
+import woodImg from "./woodLarge.jpg";
 
 function BackgroundImage(props) {
   return (
@@ -9,7 +9,8 @@ function BackgroundImage(props) {
         backgroundImage: `url(${props.src})`,
         width: "100%",
         height: "100vh",
-        backgroundSize: "100%"
+        backgroundSize: "100%",
+        backgroundRepeat: "repeat-y"
       }}
     >
       {props.children}
