@@ -1,23 +1,7 @@
 import React from "react";
 import "./App.css";
 import woodImg from "./woodLarge.jpg";
-
-function BackgroundImage2(props) {
-  return (
-    <div
-      style={{
-        BackgroundImage2: `url(${props.src})`,
-        width: "100%",
-        minHeight: '100vh',
-        height: '100%',
-        backgroundSize: "100%",
-        backgroundRepeat: "repeat-y"
-      }}
-    >
-      {props.children}
-    </div>
-  );
-}
+import { BackgroundImage } from './Components/BackgroundImage';
 
 function Photo(props) {
   return (
