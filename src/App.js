@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import woodImg from "./woodLarge.jpg";
-import { BackgroundImage } from './Components/BackgroundImage';
+import { BackgroundImage } from "./Components/BackgroundImage";
 
 function Photo(props) {
   return (
@@ -76,8 +76,8 @@ function shuffle(a) {
 
 export default () => {
   return (
-    <BackgroundImage2 src={woodImg}>
+    <BackgroundImage src={woodImg}>
       <PhotoElements />
-    </BackgroundImage2>
+    </BackgroundImage>
   );
 };
